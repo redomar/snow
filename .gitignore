@@ -18,6 +18,8 @@
 # misc
 .DS_Store
 *.pem
+*.icloud
+tsconfig.ts*
 
 # debug
 npm-debug.log*
@@ -34,3 +36,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# editor
+.editorconfig
+/.vscode
+
+*.code-workspace
