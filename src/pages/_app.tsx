@@ -6,13 +6,23 @@ import superjson from "superjson";
 import { SessionProvider } from "next-auth/react";
 import "../styles/globals.css";
 import Navigation from "../components/navigation/navigation";
+import Head from "next/head";
+import { useState } from "react";
 
-const MyApp: AppType = ({
-  Component,
-  pageProps: { session, ...pageProps },
-}) => {
+const AppHead = () => {
+  return (
+    <Head>
+      <title>Snow</title>
+      <meta name="description" content="Snow website" />
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
+  );
+};
+
+const MyApp: AppType = ({ Component, pageProps: { session, ...pageProps } }) => {
   return (
     <SessionProvider session={session}>
+      <AppHead />
       <Navigation />
       <Component {...pageProps} />
     </SessionProvider>
