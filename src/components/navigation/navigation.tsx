@@ -17,7 +17,9 @@ export default function Navigation() {
         </Link>
       </div>
       <div className="self-center navbar-item ">
-        <div className="px-5 py-1 text-sm tracking-normal hover:bg-indigo-600">Sign In</div>
+        <Link href="/login">
+          <div className="px-5 py-1 text-sm tracking-normal hover:bg-indigo-600">Sign In</div>
+        </Link>
       </div>
     </nav>
   );
