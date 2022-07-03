@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LoginComponent from "../login";
 
 // Export a component for the navigation bar
 export default function Navigation() {
@@ -17,9 +18,7 @@ export default function Navigation() {
         </Link>
       </div>
       <div className="self-center navbar-item ">
-        <Link href="/login">
-          <div className="px-5 py-1 text-sm tracking-normal hover:bg-indigo-600">Sign In</div>
-        </Link>
+        <LoginComponent />
       </div>
     </nav>
   );
