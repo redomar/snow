@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
+import Link from "next/link";
 
 const LoginComponent: NextPage = () => {
   const { data: session, status } = useSession();
@@ -10,11 +11,15 @@ const LoginComponent: NextPage = () => {
   if (status === "authenticated") {
     return (
       <div className="flex items-center gap-3 px-5 py-1 text-sm tracking-normal">
-        <div>Signed in as <span className="text-red-500">{session?.user?.name}</span></div>
+        <Link href="auth/login">
+          <div>
+            Signed in as <span className="text-red-500">{session?.user?.name}</span>
+          </div>
+        </Link>
         {session?.user?.image && (
           <>
-            <div style={{ borderRadius: "16px", overflow: "hidden" }}>
-              <Image src={session?.user?.image} width="32px" height="32px" objectFit="cover" />
+            <div className="w-8 h-8" style={{ borderRadius: "16px", overflow: "hidden" }}>
+              <Image src={session?.user?.image} width="64px" height="64px" objectFit="cover" />
             </div>
           </>
         )}
