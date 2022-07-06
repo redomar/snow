@@ -7,18 +7,17 @@ export default function Navigation() {
     <nav className="flex justify-between w-full h-full px-3 text-white bg-black border-b-2 shadow-md border-zinc-900">
       <div className="flex items-baseline grid-cols-4 gap-1 ">
         <LogoArea />
+      </div>
+      <div className="self-center navbar-item ">
         <Link href="/blog">
           <div className="w-24 navbar-item hover:bg-teal-500 hover:text-black">Blog</div>
         </Link>
         <Link href="/about">
           <div className="w-24 navbar-item hover:bg-rose-500 hover:text-black">About</div>
         </Link>
-        <Link href="/contact">
+        {/* <Link href="/contact">
           <div className="w-24 navbar-item hover:bg-amber-500 hover:text-black">Contact</div>
-        </Link>
-      </div>
-      <div className="self-center navbar-item ">
-        <LoginComponent />
+        </Link>  <LoginComponent /> */}
       </div>
     </nav>
   );
