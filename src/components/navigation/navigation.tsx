@@ -1,23 +1,52 @@
 import Link from "next/link";
 import LoginComponent from "../login";
+import { useRouter } from "next/router";
+import { Fragment } from "react";
 
 // Export a component for the navigation bar
 export default function Navigation() {
+  const router = useRouter();
+
+  const navbarItems = [
+    {
+      name: "Blog",
+      href: "/blog",
+      mainColour: "bg-teal-500",
+      hoverColour: "hover:bg-teal-500",
+    },
+    {
+      name: "About",
+      href: "/about",
+      mainColour: "bg-rose-500",
+      hoverColour: "hover:bg-rose-500",
+    },
+    {
+      name: "Contact",
+      href: "/contact",
+      mainColour: "bg-amber-500",
+      hoverColour: "hover:bg-amber-500",
+    },
+  ];
+
   return (
     <nav className="flex justify-between w-full h-full px-3 text-white bg-black border-b-2 shadow-md border-zinc-900">
       <div className="flex items-baseline grid-cols-4 gap-1 ">
         <LogoArea />
       </div>
       <div className="self-center navbar-item ">
-        <Link href="/blog">
-          <div className="w-24 navbar-item hover:bg-teal-500 hover:text-black">Blog</div>
-        </Link>
-        <Link href="/about">
-          <div className="w-24 navbar-item hover:bg-rose-500 hover:text-black">About</div>
-        </Link>
-        {/* <Link href="/contact">
-          <div className="w-24 navbar-item hover:bg-amber-500 hover:text-black">Contact</div>
-        </Link>  <LoginComponent /> */}
+        {navbarItems.map((item, index) => (
+          <Fragment key={`${index}-${item.name}`}>
+            <Link href={item.href}>
+              <div
+                className={`w-24 navbar-item ${item.hoverColour} ${
+                  router.pathname == item.href ? `${item.mainColour} text-white` : ""
+                } hover:text-black`}>
+                {item.name}
+              </div>
+            </Link>
+          </Fragment>
+        ))}
+        <LoginComponent />
       </div>
     </nav>
   );

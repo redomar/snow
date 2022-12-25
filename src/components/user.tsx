@@ -1,5 +1,6 @@
 import { User } from "@prisma/client";
 import { signOut, useSession } from "next-auth/react";
+import Image from "next/image";
 
 export default function UserDetail() {
   const { data: session } = useSession();
@@ -11,7 +12,12 @@ export default function UserDetail() {
         {session?.user?.image && (
           <>
             <div className="w-16 h-16" style={{ borderRadius: "32px", overflow: "hidden" }}>
-              <img src={session?.user?.image} width="64px" height="64px" />
+              <Image
+                src={session?.user?.image}
+                width="64px"
+                height="64px"
+                alt="User profile picture"
+              />
             </div>
           </>
         )}
