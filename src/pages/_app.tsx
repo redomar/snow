@@ -11,6 +11,7 @@ import { withTRPC } from "@trpc/next";
 
 import type { AppRouter } from "@/server/router";
 import type { AppType } from "next/dist/shared/lib/utils";
+import { type Session } from "next-auth";
 const AppHead = () => {
   return (
     <Head>
@@ -21,7 +22,10 @@ const AppHead = () => {
   );
 };
 
-const MyApp: AppType = ({ Component, pageProps: { session, ...pageProps } }) => {
+const MyApp: AppType<{ session: Session | null }> = ({
+  Component,
+  pageProps: { session, ...pageProps },
+}) => {
   return (
     <SessionProvider session={session}>
       <AppHead />

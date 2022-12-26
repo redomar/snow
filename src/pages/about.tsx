@@ -11,15 +11,16 @@ const AboutHome: NextPage = (props) => {
       <div className="flex flex-col items-center m-12 justify-center">
         <div className="">
           <div className="flex items-center justify-center ">
-            <Image
-              src="/assets/omar.jpg"
-              width="200px"
-              height="200px"
-              layout="fixed"
-              alt="A portrait of me smiling"
-              objectFit="cover"
-              className="rounded-full"
-            />
+            <div className="relative h-48 w-48">
+              <Image
+                src="/assets/omar.jpg"
+                sizes="192rem"
+                fill
+                className="rounded-full "
+                alt="A portrait of me smiling"
+                priority={true}
+              />
+            </div>
           </div>
           <h1 className="text-4xl font-bold">About</h1>
           <div className="py-6 flex flex-col gap-2">

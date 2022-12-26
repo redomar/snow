@@ -21,9 +21,9 @@ const LoginComponent: NextPage = () => {
             <div className="w-8 h-8" style={{ borderRadius: "16px", overflow: "hidden" }}>
               <Image
                 src={session?.user?.image}
-                width="64px"
-                height="64px"
-                objectFit="cover"
+                width="64"
+                height="64"
+                className="rounded-full object-cover"
                 alt="Your profile picture"
               />
             </div>

@@ -14,8 +14,8 @@ export default function UserDetail() {
             <div className="w-16 h-16" style={{ borderRadius: "32px", overflow: "hidden" }}>
               <Image
                 src={session?.user?.image}
-                width="64px"
-                height="64px"
+                width="64"
+                height="64"
                 alt="User profile picture"
               />
             </div>
