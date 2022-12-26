@@ -4,9 +4,10 @@ import superjson from "superjson";
 
 import { exampleRouter } from "./example";
 
+// prettier-ignore
 export const appRouter = createRouter()
-  .transformer(superjson)
-  .merge("example.", exampleRouter);
+    .transformer(superjson)
+    .merge("example.", exampleRouter);
 
 // export type definition of API
 export type AppRouter = typeof appRouter;

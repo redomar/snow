@@ -1,13 +1,13 @@
-import 'tailwindcss/tailwind.css';
-import '@/styles/globals.css';
+import "tailwindcss/tailwind.css";
+import "@/styles/globals.css";
 
 //src/styles/globals.css
-import { SessionProvider } from 'next-auth/react';
-import Head from 'next/head';
-import superjson from 'superjson';
+import { SessionProvider } from "next-auth/react";
+import Head from "next/head";
+import superjson from "superjson";
 
-import Navigation from '@/components/navigation/navigation';
-import { withTRPC } from '@trpc/next';
+import Navigation from "@/components/navigation/navigation";
+import { withTRPC } from "@trpc/next";
 
 import type { AppRouter } from "@/server/router";
 import type { AppType } from "next/dist/shared/lib/utils";
