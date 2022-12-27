@@ -1,27 +1,37 @@
-import { User } from "@prisma/client";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 
 export default function UserDetail() {
-  const { data: session } = useSession();
+  const { data: sessionData } = useSession();
 
   return (
-    <div className="block w-full h-screen mt-0 text-white border bg-stone-900 border-stone-800/40">
-      <div className="flex flex-col items-center justify-center w-4/12 gap-3 pt-3 mx-auto mt-12 bg-black border rounded shadow-xl h-120 border-stone-800">
-        <span className="font-bold text-red-500">{session?.user?.name}</span>
-        {session?.user?.image && (
+    <div className="mt-0 block h-screen w-full border border-stone-800/40 bg-stone-900 text-white">
+      <div className="h-120 mx-auto mt-12 flex w-4/12 flex-col items-center justify-center gap-3 rounded border border-stone-800 bg-black pt-3 shadow-xl">
+        {sessionData && sessionData.user && (
           <>
-            <div className="w-16 h-16" style={{ borderRadius: "32px", overflow: "hidden" }}>
-              <Image
-                src={session?.user?.image}
-                width="64"
-                height="64"
-                alt="User profile picture"
-              />
+            <span className="font-bold text-red-500">
+              {sessionData.user.name}
+            </span>
+
+            <div
+              className="h-16 w-16"
+              style={{ borderRadius: "32px", overflow: "hidden" }}
+            >
+              {sessionData.user.image && (
+                <Image
+                  src={sessionData.user.image}
+                  width="64"
+                  height="64"
+                  alt="User profile picture"
+                />
+              )}
             </div>
           </>
         )}
-        <button className="w-full py-2 mt-3 text-center bg-indigo-600" onClick={() => signOut()}>
+        <button
+          className="mt-3 w-full bg-indigo-600 py-2 text-center"
+          onClick={() => signOut()}
+        >
           Sign Out
         </button>
       </div>

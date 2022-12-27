@@ -28,6 +28,13 @@ export default function Navigation() {
     },
   ];
 
+  // Method that uses router.pathname to determine which item is active
+  const findActiveItem = () => {
+    const activeItem = navbarItems.find((item) => item.href === router.pathname);
+    return activeItem ? activeItem : { mainColour: "bg-indigo-600" };
+  };
+
+
   return (
     <nav className=" flex justify-between w-full h-fit px-3 z-10 pos text-white bg-black border-b-2 shadow-md border-zinc-900">
       <div className="flex items-baseline ">
@@ -46,7 +53,7 @@ export default function Navigation() {
             </Link>
           </Fragment>
         ))}
-        <LoginComponent />
+        <LoginComponent mainColour={findActiveItem()?.mainColour} />
       </div>
     </nav>
   );
