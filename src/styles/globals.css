@@ -2,12 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-white text-black;
-}
-
-@layer utilities {
-  .navbar-item {
-    @apply h-full flex items-center justify-center cursor-pointer text-lg font-bold tracking-tighter uppercase;
-  }
-}

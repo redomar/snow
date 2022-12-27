@@ -2,6 +2,8 @@ import { NextPage } from "next";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
+
 
 const LoginComponent: NextPage = () => {
   const { data: session, status } = useSession();
@@ -36,7 +38,7 @@ const LoginComponent: NextPage = () => {
   return (
     <button
       onClick={() => {
-        window.location.href = "/api/auth/signin";
+        signIn();
       }}
       title="Login"
       className="flex items-center justify-center p-2 hover:bg-indigo-600">

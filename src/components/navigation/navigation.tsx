@@ -29,18 +29,18 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="flex justify-between w-full h-full px-3 text-white bg-black border-b-2 shadow-md border-zinc-900">
-      <div className="flex items-baseline grid-cols-4 gap-1 ">
+    <nav className=" flex justify-between w-full h-fit px-3 z-10 pos text-white bg-black border-b-2 shadow-md border-zinc-900">
+      <div className="flex items-baseline ">
         <LogoArea />
       </div>
-      <div className="self-center navbar-item ">
+      <div className="flex relative">
         {navbarItems.map((item, index) => (
           <Fragment key={`${index}-${item.name}`}>
-            <Link href={item.href}>
-              <div
-                className={`w-24 navbar-item ${item.hoverColour} ${
+            <Link href={item.href} className={`flex h-full items-center  justify-center px-2 cursor-pointer text-lg font-bold tracking-tighter uppercase ${item.hoverColour} ${
                   router.pathname == item.href ? `${item.mainColour} text-white` : ""
                 } hover:text-black`}>
+              <div
+                >
                 {item.name}
               </div>
             </Link>
